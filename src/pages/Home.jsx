@@ -1,15 +1,20 @@
-const Home = () => {
+import { getTrending } from 'api';
+import { useEffect, useState } from 'react';
+import { MovieList } from '../components/MovieList/MovieList';
+
+export const Home = () => {
+  const [trending, setTrending] = useState([]);
+
+  useEffect(() => {
+    getTrending().then(data => setTrending(data));
+  }, []);
+
   return (
-    <main>
-      <h1>Welcome</h1>
-      <img src="https://via.placeholder.com/960x240" alt="" />
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto,
-        laboriosam placeat incidunt rem illum animi nemo quibusdam quia
-        voluptatum voluptate.
-      </p>
-    </main>
+    <>
+      <header>
+        <h1 style={{ marginBottom: '20px' }}>Trending today</h1>
+      </header>
+      <main>{trending && <MovieList movies={trending} />}</main>
+    </>
   );
 };
-
-export default Home;
