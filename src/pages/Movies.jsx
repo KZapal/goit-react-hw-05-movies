@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Searchbar } from 'components/Searchbar/Searchbar';
 import { MovieList } from 'components/MovieList/MovieList';
 import { getByTitle } from '../api';
 
 export const Movies = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchQuery, setSearchQuery] = useState(searchParams);
   const [searchedMovies, setSearchedMovies] = useState([]);
 
   const handleChange = event => {
@@ -13,12 +15,12 @@ export const Movies = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    // const currentURL = window.location.href;
-    // const updatedURL = `${currentURL}?query=${searchQuery}`;
+
+    setSearchParams({
+      query: searchQuery,
+    });
 
     getByTitle(searchQuery).then(data => setSearchedMovies(data.results));
-
-    // window.location.href = updatedURL;
   };
 
   return (

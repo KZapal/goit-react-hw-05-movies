@@ -7,7 +7,7 @@ export const MovieDetails = () => {
   const [details, setDetails] = useState(null);
 
   useEffect(() => {
-    // if (!movieId) return;
+    if (!movieId) return;
     getById(movieId).then(data => setDetails(data));
   }, [movieId]);
 
@@ -15,12 +15,16 @@ export const MovieDetails = () => {
     return null;
   }
 
+  if (details) {
+    console.log(details);
+  }
+
   return (
     <main>
       <button>Go back</button>
       <div>
         <img
-          src={`https://image.tmdb.org/t/p/w500${details.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w300${details.poster_path}`}
           alt={details.title}
         />
         <p>{details.title}</p>

@@ -34,13 +34,9 @@ export const getByTitle = async query => {
 
 export const getById = async movieId => {
   try {
-    const { data } = await axios.get(`/movie/`, {
-      params: {
-        movieId,
-        // language: 'en-US',
-        // api_key: '2d95e97f255e7635245c1980eab541d3',
-      },
-    });
+    const { data } = await axios.get(
+      `/movie/${movieId}?api_key=2d95e97f255e7635245c1980eab541d3`
+    );
     return data;
   } catch (error) {
     return error.message;
