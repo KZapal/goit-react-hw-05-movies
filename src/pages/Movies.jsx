@@ -6,7 +6,9 @@ import { getByTitle } from '../api';
 
 export const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [searchQuery, setSearchQuery] = useState(searchParams);
+  const [searchQuery, setSearchQuery] = useState(
+    searchParams.get('query') || ''
+  );
   const [searchedMovies, setSearchedMovies] = useState([]);
 
   const handleChange = event => {

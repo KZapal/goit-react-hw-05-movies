@@ -42,3 +42,14 @@ export const getById = async movieId => {
     return error.message;
   }
 };
+
+export const getCast = async movieId => {
+  try {
+    const { data } = await axios.get(
+      `/movie/${movieId}/credits?api_key=2d95e97f255e7635245c1980eab541d3`
+    );
+    return data;
+  } catch (error) {
+    return error.message;
+  }
+};
