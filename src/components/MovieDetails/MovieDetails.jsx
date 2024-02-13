@@ -1,6 +1,6 @@
 import { getById } from 'api';
 import { useParams, Outlet } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import {
   Wrapper,
   List,
@@ -8,7 +8,6 @@ import {
   BackBtn,
   UseLink,
 } from './MovieDetails.styled';
-// import { Cast } from 'components/Cast/Cast';
 
 const Arrow = () => {
   return <div>&#8594;</div>;
@@ -76,7 +75,9 @@ export const MovieDetails = () => {
           </li>
         </List>
       </Wrapper>
-      <Outlet></Outlet>
+      <Suspense fallback={<div>Loading subpage...</div>}>
+        <Outlet />
+      </Suspense>
     </main>
   );
 };
