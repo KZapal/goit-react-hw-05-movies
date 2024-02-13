@@ -1,8 +1,18 @@
 import { getById } from 'api';
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Wrapper, List, ListWrapper } from './MovieDetails.styled';
+import {
+  Wrapper,
+  List,
+  ListWrapper,
+  BackBtn,
+  UseLink,
+} from './MovieDetails.styled';
 // import { Cast } from 'components/Cast/Cast';
+
+const Arrow = () => {
+  return <div>&#8594;</div>;
+};
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
@@ -20,7 +30,7 @@ export const MovieDetails = () => {
   return (
     <main>
       {' '}
-      <button>Go back</button>
+      <BackBtn onClick={() => window.history.back()}>Go back</BackBtn>
       <Wrapper>
         <img
           src={`https://image.tmdb.org/t/p/w300${details.poster_path}`}
@@ -55,10 +65,10 @@ export const MovieDetails = () => {
                   <p style={{ fontSize: '20px' }}>Additional information:</p>
 
                   <li style={{ paddingTop: '5px' }}>
-                    <Link to="cast">Cast</Link>
+                    <UseLink to="cast">{Arrow()} Cast</UseLink>
                   </li>
                   <li style={{ paddingTop: '5px' }}>
-                    <Link to="reviews">Reviews</Link>
+                    <UseLink to="reviews">{Arrow()} Reviews</UseLink>
                   </li>
                 </ul>
               </li>

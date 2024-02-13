@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const CastList = styled.ul`
-  padding: 15px;
+  padding-top: 15px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   gap: 30px;
 `;
 

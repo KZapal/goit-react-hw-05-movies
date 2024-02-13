@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -22,4 +23,25 @@ export const ListWrapper = styled.ul`
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+`;
+
+export const BackBtn = styled.button`
+  background-color: orangered;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 7px;
+`;
+
+export const UseLink = styled(Link)`
+  color: black;
+  text-decoration: none;
+  display: flex;
+  gap: 5px;
+
+  &:hover {
+    color: orangered;
+  }
 `;
