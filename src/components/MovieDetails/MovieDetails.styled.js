@@ -21,4 +21,5 @@ export const List = styled.ul`
 export const ListWrapper = styled.ul`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
 `;

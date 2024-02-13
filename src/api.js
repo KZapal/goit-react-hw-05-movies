@@ -46,7 +46,18 @@ export const getById = async movieId => {
 export const getCast = async movieId => {
   try {
     const { data } = await axios.get(
-      `/movie/${movieId}/credits?api_key=2d95e97f255e7635245c1980eab541d3`
+      `/movie/${movieId}/credits?api_key=2d95e97f255e7635245c1980eab541d3&language=en-US`
+    );
+    return data;
+  } catch (error) {
+    return error.message;
+  }
+};
+
+export const getReviews = async movieId => {
+  try {
+    const { data } = await axios.get(
+      `/movie/${movieId}/reviews?api_key=2d95e97f255e7635245c1980eab541d3&language=en-US`
     );
     return data;
   } catch (error) {

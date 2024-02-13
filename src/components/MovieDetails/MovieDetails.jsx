@@ -1,7 +1,8 @@
 import { getById } from 'api';
-import { useParams } from 'react-router-dom';
+import { useParams, Link, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Wrapper, List, ListWrapper } from './MovieDetails.styled';
+// import { Cast } from 'components/Cast/Cast';
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
@@ -14,10 +15,6 @@ export const MovieDetails = () => {
 
   if (!details) {
     return null;
-  }
-
-  if (details) {
-    console.log(details);
   }
 
   return (
@@ -45,23 +42,31 @@ export const MovieDetails = () => {
                   <p style={{ fontSize: '20px' }}>Genres:</p>
 
                   {details.genres.map(item => {
-                    return <li>{item.name}</li>;
+                    return (
+                      <li key={item.id} style={{ paddingTop: '5px' }}>
+                        {item.name}
+                      </li>
+                    );
                   })}
                 </ul>
               </li>
               <li>
-                <ul style={{ marginTop: '10px' }}>
+                <ul style={{ margin: '10px' }}>
                   <p style={{ fontSize: '20px' }}>Additional information:</p>
 
-                  <li>Cast</li>
-                  <li>Reviews</li>
+                  <li style={{ paddingTop: '5px' }}>
+                    <Link to="cast">Cast</Link>
+                  </li>
+                  <li style={{ paddingTop: '5px' }}>
+                    <Link to="reviews">Reviews</Link>
+                  </li>
                 </ul>
               </li>
             </ListWrapper>
           </li>
         </List>
       </Wrapper>
-      <div></div>
+      <Outlet></Outlet>
     </main>
   );
 };
