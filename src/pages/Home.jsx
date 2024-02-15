@@ -2,7 +2,7 @@ import { getTrending } from 'api';
 import { useEffect, useState } from 'react';
 import { MovieList } from '../components/MovieList/MovieList';
 
-export const Home = () => {
+const Home = () => {
   const [trending, setTrending] = useState([]);
 
   useEffect(() => {
@@ -18,3 +18,5 @@ export const Home = () => {
     </>
   );
 };
+
+export default Home;

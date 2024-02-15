@@ -13,7 +13,7 @@ const Arrow = () => {
   return <div>&#8594;</div>;
 };
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
   const [details, setDetails] = useState(null);
 
@@ -81,3 +81,5 @@ export const MovieDetails = () => {
     </main>
   );
 };
+
+export default MovieDetails;
