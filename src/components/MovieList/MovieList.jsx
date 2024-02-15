@@ -1,4 +1,5 @@
 import { List, Card, Title, CardLink } from './MovieList.styled';
+import PropTypes from 'prop-types';
 
 export const MovieList = ({ movies }) => {
   return (
@@ -22,4 +23,8 @@ export const MovieList = ({ movies }) => {
       </List>
     </>
   );
+};
+
+MovieList.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

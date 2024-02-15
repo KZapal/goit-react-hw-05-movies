@@ -1,4 +1,5 @@
 import { Container, Form, Input, Btn } from './Searchbar.styled';
+import PropTypes from 'prop-types';
 
 export const Searchbar = ({ searchQuery, handleChange, handleSubmit }) => {
   return (
@@ -18,4 +19,10 @@ export const Searchbar = ({ searchQuery, handleChange, handleSubmit }) => {
       </Container>
     </>
   );
+};
+
+Searchbar.propTypes = {
+  searchQuery: PropTypes.string,
+  handleChange: PropTypes.func,
+  handleSubmit: PropTypes.func,
 };
